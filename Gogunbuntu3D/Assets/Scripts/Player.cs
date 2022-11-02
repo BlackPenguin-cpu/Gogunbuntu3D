@@ -9,20 +9,19 @@ public partial class Player : Singleton<Player>
 {
     [HideInInspector]
     public Rigidbody rb;
+    public float m_Speed = 100, jumpPower = 500, gravityScale = 98, MaxSpeed = 15;
+    public float MouseSense = 3;
+
+    private int jumpCount = 2;
+    [SerializeField] 
+    private GameObject CamArm;
+
     private Camera cam;
 
-    public float m_Speed = 100,jumpPower = 500,gravityScale = 98,MaxSpeed = 15;
-    float h;
-    float v;
-    [SerializeField]
-    GameObject CamArm;
-    float mouseX = 0;
-    float mouseY = 0;
-    public float MouseSense = 3;
-    int jumpCount = 2;
+    private float h, v;
+    private float mouseX , mouseY;
 
-    RaycastHit hit;
-    [SerializeField] float rayDistance;
+    [SerializeField] private float rayDistance;
     void Start()
     {
         cam = Camera.main;
@@ -63,7 +62,7 @@ public partial class Player : Singleton<Player>
     {
         Debug.DrawRay(transform.position, Vector3.down * rayDistance, Color.red);
         if (Physics.Raycast(transform.position, Vector3.down,
-            out hit, rayDistance, LayerMask.GetMask("Ground")) && rb.velocity.y < 0)
+        rayDistance, LayerMask.GetMask("Ground")) && rb.velocity.y < 0)
         {
             jumpCount = 2;
         }
@@ -71,7 +70,7 @@ public partial class Player : Singleton<Player>
         {
             if (jumpCount != 0)
             {
-                rb.AddForce(0, jumpPower, 0);
+                rb.AddForce(0, jumpPower, 0, ForceMode.Impulse);
                 jumpCount--;
             }
 
@@ -109,8 +108,7 @@ public partial class Player : Singleton<Player>
     }
     private void FixedUpdate()
     {
-        Vector3 forwardPos = transform.forward;
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, 20);
-        rb.AddRelativeForce(new Vector3(h, 0, v) * m_Speed);
+        //Move
+        rb.AddRelativeForce(new Vector3(h, 0, v) * m_Speed, ForceMode.Impulse);
     }
 }
