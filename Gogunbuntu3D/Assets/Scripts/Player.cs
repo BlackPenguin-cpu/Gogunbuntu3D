@@ -14,6 +14,7 @@ public partial class Player : Singleton<Player>
     public float m_Speed = 100;
     public float MaxSpeed = 15;
     public float jumpPower = 500;
+    public float gravityScale = 98;
     float h;
     float v;
     [SerializeField]
@@ -35,10 +36,16 @@ public partial class Player : Singleton<Player>
 
     void Update()
     {
-    	MouseInput();
+        MouseInput();
         playerMove();
         MouseRotate();
         playerJump();
+        GravityAccept();
+
+    }
+    private void GravityAccept()
+    {
+        rb.AddForce(Vector3.down * gravityScale * Time.deltaTime, ForceMode.Impulse);
     }
     private void MouseInput()
     {
@@ -58,8 +65,7 @@ public partial class Player : Singleton<Player>
     void playerJump()
     {
         Debug.DrawRay(transform.position, Vector3.down * rayDistance, Color.red);
-        Debug.Log(rb.velocity.y);
-        if (Physics.Raycast(transform.position, Vector3.down, 
+        if (Physics.Raycast(transform.position, Vector3.down,
             out hit, rayDistance, LayerMask.GetMask("Ground")) && rb.velocity.y < 0)
         {
             jumpCount = 2;
