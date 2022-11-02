@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 1473844581}
   - component: {fileID: 1473844580}
   - component: {fileID: 1473844579}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -322,6 +322,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5763890240166277321, guid: 1cc015445b42aa9498d0b2c2c19f56b4, type: 3}
+      propertyPath: m_Speed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763890240166277321, guid: 1cc015445b42aa9498d0b2c2c19f56b4, type: 3}
+      propertyPath: MaxSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763890240166277321, guid: 1cc015445b42aa9498d0b2c2c19f56b4, type: 3}
+      propertyPath: jumpPower
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5763890240166277321, guid: 1cc015445b42aa9498d0b2c2c19f56b4, type: 3}
+      propertyPath: rayDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5763890240166277326, guid: 1cc015445b42aa9498d0b2c2c19f56b4, type: 3}
       propertyPath: m_Name
       value: Player
