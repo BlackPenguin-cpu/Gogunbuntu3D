@@ -102,7 +102,7 @@ public partial class Player : Singleton<Player>
     {
         mouseX += Input.GetAxis("Mouse X") * MouseSense;
         mouseY -= Input.GetAxis("Mouse Y") * (MouseSense * 0.8f);
-        mouseY = Mathf.Clamp(mouseY, -55, 55);
+        mouseY = Mathf.Clamp(mouseY, -75, 75);
         transform.eulerAngles = new Vector3(0, mouseX, 0);
         CamArm.transform.eulerAngles = new Vector3(mouseY, mouseX, 0);
     }
