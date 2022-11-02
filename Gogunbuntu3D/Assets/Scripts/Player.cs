@@ -10,14 +10,16 @@ public partial class Player : Singleton<Player>
     private Camera cam;
     public Rigidbody rb;
 
-    public float m_Speed;
+    public float m_Speed = 100;
+    public float MaxSpeed = 15;
+    public float jumpPower = 500;
     float h;
     float v;
     [SerializeField]
     GameObject CamArm;
     float mouseX = 0;
     float mouseY = 0;
-    public float MouseSense;
+    public float MouseSense = 3;
     void Start()
     {
         cam = Camera.main;
@@ -31,6 +33,7 @@ public partial class Player : Singleton<Player>
     	MouseInput();
         playerMove();
         MouseRotate();
+        playerJump();
     }
     private void MouseInput()
     {
@@ -47,10 +50,17 @@ public partial class Player : Singleton<Player>
             if (plunger_obj != null) Destroy(plunger_obj);
         }
     }
+    void playerJump()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(0, jumpPower, 0);
+        }
+    }
     void playerMove()
     {
-        if (rb.velocity.x > m_Speed && h > 0 ||
-                    rb.velocity.x < -m_Speed && h < 0)
+        if (rb.velocity.x > MaxSpeed ||
+                    rb.velocity.x < -MaxSpeed)
         {
             h = 0;
         }
@@ -58,8 +68,8 @@ public partial class Player : Singleton<Player>
         {
             h = Input.GetAxisRaw("Horizontal");
         }
-        if (rb.velocity.z > m_Speed && v > 0 ||
-           rb.velocity.z < -m_Speed && v < 0)
+        if (rb.velocity.z > MaxSpeed && v > 0 ||
+           rb.velocity.z < -MaxSpeed && v < 0)
         {
             v = 0;
         }
