@@ -93,7 +93,6 @@ public partial class Player : Singleton<Player>
         {
             v = Input.GetAxisRaw("Vertical");
         }
-        Debug.Log($"{rb.velocity},{transform.forward}");
     }
     void MouseRotate()
     {
