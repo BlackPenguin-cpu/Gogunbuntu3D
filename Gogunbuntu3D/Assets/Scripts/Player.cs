@@ -11,10 +11,7 @@ public partial class Player : Singleton<Player>
     public Rigidbody rb;
     private Camera cam;
 
-    public float m_Speed = 100;
-    public float MaxSpeed = 15;
-    public float jumpPower = 500;
-    public float gravityScale = 98;
+    public float m_Speed = 100,jumpPower = 500,gravityScale = 98,MaxSpeed = 15;
     float h;
     float v;
     [SerializeField]
@@ -77,6 +74,7 @@ public partial class Player : Singleton<Player>
                 rb.AddForce(0, jumpPower, 0);
                 jumpCount--;
             }
+
         }
     }
     void playerMove()
@@ -99,6 +97,7 @@ public partial class Player : Singleton<Player>
         {
             v = Input.GetAxisRaw("Vertical");
         }
+        Debug.Log(rb.velocity);
     }
     void MouseRotate()
     {
@@ -111,7 +110,7 @@ public partial class Player : Singleton<Player>
     private void FixedUpdate()
     {
         Vector3 forwardPos = transform.forward;
-
+        rb.velocity = Vector3.ClampMagnitude(rb.velocity, 20);
         rb.AddRelativeForce(new Vector3(h, 0, v) * m_Speed);
     }
 }
