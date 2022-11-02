@@ -24,7 +24,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 29344
+  controlID: -1
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 29345
+  controlID: -1
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -166,7 +166,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 29346
+  controlID: -1
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -224,23 +224,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 664bffff
-      m_LastClickedID: -46234
-      m_ExpandedIDs: cae0ffff32fbffff
+      m_SelectedIDs: cc6f0000
+      m_LastClickedID: 0
+      m_ExpandedIDs: 3a29feff1a33feffcae0ffff32fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: 
-        m_OriginalName: 
+        m_Name: Plunger(Clone)
+        m_OriginalName: Plunger(Clone)
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 0
+        m_UserData: -134480
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 11
+        m_OriginalEventType: 0
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 5}
       m_SearchString: 
@@ -502,9 +502,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.59094274, y: 10.599284, z: 7.2566934}
+    m_Target: {x: 16.648527, y: 8.259453, z: 5.888345}
     speed: 2
-    m_Value: {x: -0.59094274, y: 10.599284, z: 7.2566934}
+    m_Value: {x: 16.648527, y: 8.259453, z: 5.888345}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -551,20 +551,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.11834338, y: -0.055975392, z: 0.0066810865, w: -0.9913866}
+    m_Target: {x: -0.06920388, y: -0.722277, z: 0.07307188, w: -0.6842793}
     speed: 2
-    m_Value: {x: -0.118341595, y: -0.055974547, z: 0.0066809854, w: -0.9913716}
+    m_Value: {x: -0.069202125, y: -0.7222586, z: 0.07307003, w: -0.684262}
   m_Size:
-    m_Target: 2.5913954
+    m_Target: 12.068914
     speed: 2
-    m_Value: 2.5913954
+    m_Value: 12.068914
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1
-    m_SpeedNormalized: 0.5
+    m_Speed: 1.1804098
+    m_SpeedNormalized: 0.5899999
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1
@@ -650,21 +650,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Prefab
+    - Assets/Background/FBX/Building_FBX
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefab
+  - Assets/Background/FBX/Building_FBX
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\User\Gogunbuntu3D\Gogunbuntu3D
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 50620000
-    m_LastClickedID: 25168
+    m_SelectedIDs: c46f0000
+    m_LastClickedID: 28612
     m_ExpandedIDs: 00000000545e00005e5e0000946f00009a6f0000f66f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -693,7 +693,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000005e5e000000ca9a3b
+    m_ExpandedIDs: 000000005e5e0000946f00009a6f0000f66f000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -718,10 +718,10 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 664bffff
-    m_LastClickedInstanceID: -46234
+    m_SelectedInstanceIDs: cc6f0000
+    m_LastClickedInstanceID: 28620
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000
+    m_ExpandedInstanceIDs: c6230000926f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
