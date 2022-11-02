@@ -21,12 +21,12 @@ public partial class Player : Singleton<Player>
         isPlunger = true;
 
         //obj의 rigid에 drag는 0 즉 공기저항이 없다
-        plunger_obj = Instantiate(plunger, transform.position, Quaternion.Euler(cam.transform.forward));
-        plunger_obj.GetComponent<Rigidbody>().velocity = plunger_obj.transform.forward * plungerSpeed;
+        plunger_obj = Instantiate(plunger, transform.position, cam.transform.rotation);
+        plunger_obj.GetComponent<Rigidbody>().velocity = cam.transform.forward * plungerSpeed;
     }
     private void PullPlunger()
     {
-        Vector3 dir = Vector3.Normalize(transform.position - plunger_obj.transform.position);
+        Vector3 dir = Vector3.Normalize(plunger_obj.transform.position - transform.position);
         rb.AddForce(dir * pullPower, ForceMode.Impulse);
 
         Destroy(plunger_obj);
