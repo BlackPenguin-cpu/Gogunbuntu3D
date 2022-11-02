@@ -6,7 +6,7 @@ using UnityEngine;
 
 public partial class Player : Singleton<Player>
 {
-    private bool isPlunger;
+    public bool isPlunger;
 
     [Header("¶Õ¾î»½ ¿ÀºêÁ§Æ®")]
     [SerializeField] private GameObject plunger;
@@ -26,7 +26,7 @@ public partial class Player : Singleton<Player>
     }
     private void PullPlunger()
     {
-        Vector3 dir = Vector3.Normalize(plunger_obj.transform.position - transform.position);
+        Vector3 dir = plunger_obj.transform.position - transform.position;
         rb.AddForce(dir * pullPower, ForceMode.Impulse);
 
         Destroy(plunger_obj);

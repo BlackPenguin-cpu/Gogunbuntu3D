@@ -130,15 +130,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
-  m_Speed: 25
+  m_Speed: 2
   MaxSpeed: 10
-  jumpPower: 300
+  jumpPower: 10
+  gravityScale: 20
   CamArm: {fileID: 5763890241274147369}
   MouseSense: 3
   rayDistance: 1
+  isPlunger: 0
   plunger: {fileID: 4537136535684729513, guid: 6fcfbf6b6e64f7440999b98d3bee9258, type: 3}
-  plungerSpeed: 300
-  pullPower: 200
+  plungerSpeed: 100
+  pullPower: 2
 --- !u!1 &5763890241274147369
 GameObject:
   m_ObjectHideFlags: 0

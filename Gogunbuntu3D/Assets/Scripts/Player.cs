@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -41,7 +42,10 @@ public partial class Player : Singleton<Player>
         MouseRotate();
         playerJump();
         GravityAccept();
-
+    }
+    private void FixedUpdate()
+    {
+        rb.AddRelativeForce(new Vector3(h, 0, v) * m_Speed,ForceMode.Impulse);
     }
     private void GravityAccept()
     {
@@ -74,7 +78,7 @@ public partial class Player : Singleton<Player>
         {
             if (jumpCount != 0)
             {
-                rb.AddForce(0, jumpPower, 0);
+                rb.AddForce(Vector3.up * jumpPower, ForceMode.Impulse);
                 jumpCount--;
             }
         }
@@ -108,10 +112,5 @@ public partial class Player : Singleton<Player>
         transform.eulerAngles = new Vector3(0, mouseX, 0);
         CamArm.transform.eulerAngles = new Vector3(mouseY, mouseX, 0);
     }
-    private void FixedUpdate()
-    {
-        Vector3 forwardPos = transform.forward;
 
-        rb.AddRelativeForce(new Vector3(h, 0, v) * m_Speed);
-    }
 }
