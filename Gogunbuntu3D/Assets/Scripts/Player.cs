@@ -21,6 +21,10 @@ public partial class Player : Singleton<Player>
     float mouseX = 0;
     float mouseY = 0;
     public float MouseSense = 3;
+    int jumpCount = 2;
+
+    RaycastHit hit;
+    [SerializeField] float rayDistance;
     void Start()
     {
         cam = Camera.main;
@@ -53,9 +57,20 @@ public partial class Player : Singleton<Player>
     }
     void playerJump()
     {
+        Debug.DrawRay(transform.position, Vector3.down * rayDistance, Color.red);
+        Debug.Log(rb.velocity.y);
+        if (Physics.Raycast(transform.position, Vector3.down, 
+            out hit, rayDistance, LayerMask.GetMask("Ground")) && rb.velocity.y < 0)
+        {
+            jumpCount = 2;
+        }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(0, jumpPower, 0);
+            if (jumpCount != 0)
+            {
+                rb.AddForce(0, jumpPower, 0);
+                jumpCount--;
+            }
         }
     }
     void playerMove()
