@@ -7,8 +7,9 @@ using UnityEngine.XR;
 [RequireComponent(typeof(Rigidbody))]
 public partial class Player : Singleton<Player>
 {
-    private Camera cam;
+    [HideInInspector]
     public Rigidbody rb;
+    private Camera cam;
 
     public float m_Speed = 100;
     public float MaxSpeed = 15;

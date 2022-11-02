@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -7,10 +8,13 @@ public partial class Player : Singleton<Player>
 {
     private bool isPlunger;
 
-    private GameObject plunger;
+    [Header("¶Õ¾î»½ ¿ÀºêÁ§Æ®")]
+    [SerializeField] private GameObject plunger;
     private GameObject plunger_obj;
 
+    [Header("¶Õ¾î»½ ½ºÅÝ")]
     [SerializeField] private float plungerSpeed;
+    [SerializeField] private float pullPower;
 
     private void ShootPlunger()
     {
@@ -22,8 +26,10 @@ public partial class Player : Singleton<Player>
     }
     private void PullPlunger()
     {
-        Destroy(plunger_obj);
+        Vector3 dir = Vector3.Normalize(transform.position - plunger_obj.transform.position);
+        rb.AddForce(dir * pullPower, ForceMode.Impulse);
 
+        Destroy(plunger_obj);
     }
 
 }

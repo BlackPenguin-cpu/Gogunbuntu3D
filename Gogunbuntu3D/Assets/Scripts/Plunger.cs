@@ -12,9 +12,9 @@ public class Plunger : MonoBehaviour
     private LineRenderer lineRenderer;
     private void Start()
     {
-        lineRenderer = GetComponent<LineRenderer>();
-        springJoint = GetComponent<SpringJoint>();
         rb = GetComponent<Rigidbody>();
+        springJoint = GetComponent<SpringJoint>();
+        lineRenderer = GetComponent<LineRenderer>();
 
     }
     private void Update()
