@@ -27,8 +27,9 @@ public partial class Player : Singleton<Player>
     private void PullPlunger()
     {
         if (plunger_obj.GetComponent<Plunger>().isAttach == false) return;
-        Vector3 dir = plunger_obj.transform.position - transform.position;
-        rb.AddForce(dir * pullPower, ForceMode.Impulse);
+        Vector3 dir = Vector3.Normalize(plunger_obj.transform.position - transform.position);
+
+        rb.AddForce(new Vector3(dir.x, dir.y * 1.5f, dir.z) * pullPower, ForceMode.Impulse);
 
         Destroy(plunger_obj);
     }

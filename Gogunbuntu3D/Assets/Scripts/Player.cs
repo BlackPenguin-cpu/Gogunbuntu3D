@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -13,13 +14,13 @@ public partial class Player : Singleton<Player>
     public float MouseSense = 3;
 
     private int jumpCount = 2;
-    [SerializeField] 
+    [SerializeField]
     private GameObject CamArm;
 
     private Camera cam;
 
     private float h, v;
-    private float mouseX , mouseY;
+    private float mouseX, mouseY;
 
     [SerializeField] private float rayDistance;
     void Start()
@@ -110,5 +111,9 @@ public partial class Player : Singleton<Player>
     {
         //Move
         rb.AddRelativeForce(new Vector3(h, 0, v) * m_Speed, ForceMode.Impulse);
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        if (collision.tag.Equals("Fire")) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
