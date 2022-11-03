@@ -25,6 +25,8 @@ public partial class Player : Singleton<Player>
     [SerializeField] private float rayDistance;
     void Start()
     {
+        if (instance == null)
+            instance = this;
         cam = Camera.main;
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
