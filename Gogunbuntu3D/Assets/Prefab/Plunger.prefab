@@ -129,6 +129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99eb3233dce9360488be4c3815253fe6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttach: 0
   maxDistance: 50
 --- !u!145 &4537136535684729506
 SpringJoint:
@@ -143,7 +144,7 @@ SpringJoint:
   m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
   serializedVersion: 2
-  m_Spring: 25
+  m_Spring: 5
   m_Damper: 0.25
   m_MinDistance: 0
   m_MaxDistance: 0

@@ -7,12 +7,14 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class Plunger : MonoBehaviour
 {
-    [SerializeField] private float maxDistance;
+    public bool isAttach;
 
+    [SerializeField] private float maxDistance;
     private Rigidbody rb;
     private SpringJoint springJoint;
     private LineRenderer lineRenderer;
     private Player player;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -36,6 +38,7 @@ public class Plunger : MonoBehaviour
     {
         if (other.tag.Equals("Wall"))
         {
+            isAttach = true;
             rb.isKinematic = true;
             springJoint.connectedBody = player.rb;
         }
