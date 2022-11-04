@@ -31,6 +31,8 @@ public partial class Player : Singleton<Player>
         rb = GetComponent<Rigidbody>();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        SoundManager.instance.PlaySoundClip("GogunbuntuBGM", SoundType.BGM);
     }
 
     void Update()
@@ -74,6 +76,8 @@ public partial class Player : Singleton<Player>
             if (jumpCount != 0)
             {
                 rb.AddForce(0, jumpPower, 0, ForceMode.Impulse);
+                SoundManager.instance.PlaySoundClip("Jump", SoundType.SFX);
+
                 jumpCount--;
             }
 
@@ -116,6 +120,11 @@ public partial class Player : Singleton<Player>
     }
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.tag.Equals("Fire")) SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        if (collision.tag.Equals("Fire")) Die();
+    }
+    private void Die()
+    {
+        SoundManager.instance.PlaySoundClip("DIE", SoundType.SFX , 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

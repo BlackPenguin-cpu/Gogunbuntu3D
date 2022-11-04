@@ -38,6 +38,8 @@ public class Plunger : MonoBehaviour
     {
         if (other.tag.Equals("Wall"))
         {
+            SoundManager.instance.PlaySoundClip("Plunger", SoundType.SFX);
+
             isAttach = true;
             rb.isKinematic = true;
             springJoint.connectedBody = player.rb;

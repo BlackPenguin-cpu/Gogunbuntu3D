@@ -19,6 +19,7 @@ public partial class Player : Singleton<Player>
     private void ShootPlunger()
     {
         isPlunger = true;
+        SoundManager.instance.PlaySoundClip("Rope2", SoundType.SFX, 2);
 
         //obj의 rigid에 drag는 0 즉 공기저항이 없다
         plunger_obj = Instantiate(plunger, transform.position, cam.transform.rotation);
@@ -30,6 +31,9 @@ public partial class Player : Singleton<Player>
         Vector3 dir = Vector3.Normalize(plunger_obj.transform.position - transform.position);
 
         rb.AddForce(new Vector3(dir.x, dir.y * 1.5f, dir.z) * pullPower, ForceMode.Impulse);
+
+        SoundManager.instance.PlaySoundClip("Rope", SoundType.SFX);
+
 
         Destroy(plunger_obj);
     }
