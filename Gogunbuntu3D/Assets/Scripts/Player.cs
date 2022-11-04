@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.XR;
+using DG.Tweening;
 
 [RequireComponent(typeof(Rigidbody))]
 public partial class Player : Singleton<Player>
@@ -23,6 +23,8 @@ public partial class Player : Singleton<Player>
     private float mouseX, mouseY;
 
     [SerializeField] private float rayDistance;
+
+    [SerializeField] GameObject ClearText;
     void Start()
     {
         if (instance == null)
@@ -121,10 +123,15 @@ public partial class Player : Singleton<Player>
     private void OnTriggerEnter(Collider collision)
     {
         if (collision.tag.Equals("Fire")) Die();
+        if (collision.tag.Equals("Clear")) Clear();
+    }
+    private void Clear()
+    {
+        ClearText.transform.DOMoveY(0, 1);
     }
     private void Die()
     {
-        SoundManager.instance.PlaySoundClip("DIE", SoundType.SFX , 1);
+        SoundManager.instance.PlaySoundClip("DIE", SoundType.SFX, 1);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

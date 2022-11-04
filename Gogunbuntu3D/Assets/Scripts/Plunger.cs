@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -15,6 +16,7 @@ public class Plunger : MonoBehaviour
     private LineRenderer lineRenderer;
     private Player player;
 
+    private float duration = 100;
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -27,6 +29,9 @@ public class Plunger : MonoBehaviour
     {
         lineRenderer.SetPosition(1, player.transform.position);
         lineRenderer.SetPosition(0, transform.position);
+
+        duration -= Time.deltaTime;
+        if (duration < 0) Destroy(gameObject);
 
         if (Vector3.Distance(player.transform.position, transform.position) >= maxDistance)
         {
